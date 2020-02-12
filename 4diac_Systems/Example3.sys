@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Comment="" Name="Example3">
+  <Attribute Name="Constraints" Value="Memory,HW Stress,HW Skills,Functional coupling"/>
+  <Attribute Name="Objectives" Value="Memory usage"/>
+  <VersionInfo Author="gampig" Date="2020-01-20" Version="1.0"/>
+  <Application Comment="" Name="Example3App">
+    <SubAppNetwork>
+      <FB Comment="" Name="Actuator_VoltageMotor" Type="QW" x="7733.333333333334" y="1466.6666666666667">
+        <Attribute Name="Memory" Value="2"/>
+        <Attribute Name="Skills" Value="Actuator"/>
+      </FB>
+      <FB Comment="" Name="Sensor_Velocity" Type="IW" x="2266.666666666667" y="2400.0">
+        <Attribute Name="Memory" Value="2"/>
+        <Attribute Name="Skills" Value="Sensor"/>
+      </FB>
+      <FB Comment="" Name="TargetVelocity" Type="SUBSCRIBE_1" x="2266.666666666667" y="1466.6666666666667">
+        <Attribute Name="Memory" Value="2"/>
+        <Attribute Name="Skills" Value="OPC UA"/>
+      </FB>
+      <FB Comment="" Name="ActualVelocity" Type="PUBLISH_1" x="7866.666666666667" y="2400.0">
+        <Attribute Name="Memory" Value="2"/>
+        <Attribute Name="Skills" Value="OPC UA"/>
+      </FB>
+      <FB Comment="" Name="F_WORD_TO_UINT" Type="F_WORD_TO_UINT" x="3200.0" y="2533.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+      </FB>
+      <FB Comment="" Name="UINT2UINT" Type="UINT2UINT" x="3333.3333333333335" y="1600.0">
+        <Attribute Name="Memory" Value="1"/>
+      </FB>
+      <FB Comment="" Name="F_SUB" Type="F_SUB" x="4533.333333333334" y="1600.0">
+        <Attribute Name="Memory" Value="1"/>
+      </FB>
+      <FB Comment="" Name="E_CYCLE" Type="E_CYCLE" x="1600.0" y="2533.3333333333335">
+        <Attribute Name="Memory" Value="3"/>
+      </FB>
+      <FB Comment="" Name="UINT2UINT_1" Type="UINT2UINT" x="5200.0" y="1600.0">
+        <Attribute Name="Memory" Value="1"/>
+      </FB>
+      <FB Comment="" Name="F_MUL" Type="F_MUL" x="6000.0" y="1600.0">
+        <Attribute Name="Memory" Value="2"/>
+      </FB>
+      <FB Comment="" Name="F_UINT_TO_WORD" Type="F_UINT_TO_WORD" x="6666.666666666667" y="1600.0">
+        <Attribute Name="Memory" Value="1"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="ActualVelocity.REQ" Source="F_WORD_TO_UINT.CNF" dx1="326.6666666666667"/>
+        <Connection Comment="" Destination="UINT2UINT.REQ" Source="TargetVelocity.IND" dx1="133.33333333333334"/>
+        <Connection Comment="" Destination="F_SUB.REQ" Source="F_WORD_TO_UINT.CNF" dx1="80.0"/>
+        <Connection Comment="" Destination="Sensor_Velocity.REQ" Source="E_CYCLE.EO" dx1="106.66666666666667"/>
+        <Connection Comment="" Destination="UINT2UINT_1.REQ" Source="F_SUB.CNF"/>
+        <Connection Comment="" Destination="F_MUL.REQ" Source="UINT2UINT_1.CNF"/>
+        <Connection Comment="" Destination="Actuator_VoltageMotor.REQ" Source="F_UINT_TO_WORD.CNF" dx1="180.0"/>
+        <Connection Comment="" Destination="F_UINT_TO_WORD.REQ" Source="F_MUL.CNF"/>
+        <Connection Comment="" Destination="F_WORD_TO_UINT.REQ" Source="Sensor_Velocity.CNF" dx1="160.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="ActualVelocity.SD_1" Source="F_WORD_TO_UINT.OUT" dx1="180.0"/>
+        <Connection Comment="" Destination="UINT2UINT.IN" Source="TargetVelocity.RD_1" dx1="133.33333333333334"/>
+        <Connection Comment="" Destination="F_SUB.IN2" Source="F_WORD_TO_UINT.OUT" dx1="180.0"/>
+        <Connection Comment="" Destination="F_SUB.IN1" Source="UINT2UINT.OUT"/>
+        <Connection Comment="" Destination="UINT2UINT_1.IN" Source="F_SUB.OUT"/>
+        <Connection Comment="" Destination="F_MUL.IN1" Source="UINT2UINT_1.OUT"/>
+        <Connection Comment="" Destination="Actuator_VoltageMotor.OUT" Source="F_UINT_TO_WORD.OUT" dx1="180.0"/>
+        <Connection Comment="" Destination="F_UINT_TO_WORD.IN" Source="F_MUL.OUT"/>
+        <Connection Comment="" Destination="F_WORD_TO_UINT.IN" Source="Sensor_Velocity.IN" dx1="160.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Comment="" Name="ExpensiveSensorPlc" Type="FORTE_PC" x="1066.6666666666667" y="1600.0">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="174,214,84"/>
+    <Attribute Comment="" Name="Cost" Type="STRING" Value="10"/>
+    <Attribute Comment="" Name="Skills" Type="STRING" Value="OPC UA,Sensor"/>
+    <Attribute Comment="" Name="Maximum number of FB" Type="STRING" Value="7"/>
+    <Attribute Comment="" Name="Memory" Type="STRING" Value="20"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ExpensiveActuatorPlc" Type="FORTE_PC" x="2800.0" y="1600.0">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="210,53,207"/>
+    <Attribute Comment="" Name="Cost" Type="STRING" Value="10"/>
+    <Attribute Comment="" Name="Skills" Type="STRING" Value="OPC UA,Actuator"/>
+    <Attribute Comment="" Name="Maximum number of FB" Type="STRING" Value="7"/>
+    <Attribute Comment="" Name="Memory" Type="STRING" Value="20"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="CheapActuatorPlc" Type="FORTE_PC" x="7733.333333333334" y="1200.0">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="106,195,171"/>
+    <Attribute Comment="" Name="Cost" Type="STRING" Value="1"/>
+    <Attribute Comment="" Name="Skills" Type="STRING" Value="Actuator"/>
+    <Attribute Comment="" Name="Maximum number of FB" Type="STRING" Value="3"/>
+    <Attribute Comment="" Name="Memory" Type="STRING" Value="5"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="CheapSensorPlc" Type="FORTE_PC" x="5600.0" y="1200.0">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="91,72,207"/>
+    <Attribute Comment="" Name="Cost" Type="STRING" Value="1"/>
+    <Attribute Comment="" Name="Skills" Type="STRING" Value="Sensor"/>
+    <Attribute Comment="" Name="Maximum number of FB" Type="STRING" Value="3"/>
+    <Attribute Comment="" Name="Memory" Type="STRING" Value="5"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ExpensiveOpcUaPlc" Type="FORTE_PC" x="6400.0" y="1866.6666666666667">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="221,138,175"/>
+    <Attribute Comment="" Name="Cost" Type="STRING" Value="10"/>
+    <Attribute Comment="" Name="Skills" Type="STRING" Value="OPC UA"/>
+    <Attribute Comment="" Name="Maximum number of FB" Type="STRING" Value="7"/>
+    <Attribute Comment="" Name="Memory" Type="STRING" Value="20"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Segment Comment="" Name="Ethernet" Type="Ethernet" dx1="2000.0" x="1466.6666666666667" y="800.0">
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="117,151,202"/>
+  </Segment>
+  <Segment Comment="" Name="Profibus" Type="Ethernet" dx1="2000.0" x="5866.666666666667" y="666.6666666666667">
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="196,156,125"/>
+  </Segment>
+  <Link CommResource="ExpensiveSensorPlc" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="ExpensiveActuatorPlc" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="CheapSensorPlc" Comment="" SegmentName="Profibus"/>
+  <Link CommResource="CheapActuatorPlc" Comment="" SegmentName="Profibus"/>
+  <Link CommResource="ExpensiveOpcUaPlc" Comment="" SegmentName="Profibus"/>
+</System>

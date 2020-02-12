@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Comment="" Name="Example1">
+  <Attribute Name="Maximum cost" Value="200"/>
+  <Attribute Name="Maximum number of devices" Value="4"/>
+  <Attribute Name="Communication delay" Value="10"/>
+  <Attribute Name="Constraints" Value="HW Stress,HW Skills,Functional coupling"/>
+  <Attribute Name="Objectives" Value="Cost"/>
+  <VersionInfo Author="jonas" Date="2019-11-25" Version="1.0"/>
+  <Application Comment="" Name="Example1App">
+    <SubAppNetwork>
+      <FB Comment="" Name="SUBSCRIBE_1" Type="SUBSCRIBE_1" x="1733.3333333333335" y="666.6666666666667">
+        <Attribute Name="WCET" Value="50"/>
+        <Attribute Name="Skills" Value="OPC UA"/>
+      </FB>
+      <FB Comment="" Name="PUBLISH_1" Type="PUBLISH_1" x="4933.333333333334" y="666.6666666666667">
+        <Attribute Name="WCET" Value="50"/>
+        <Attribute Name="Skills" Value="OPC UA"/>
+      </FB>
+      <FB Comment="" Name="INT2INT" Type="INT2INT" x="2666.666666666667" y="800.0">
+        <Attribute Name="WCET" Value="10"/>
+      </FB>
+      <FB Comment="" Name="SUBSCRIBE_2" Type="SUBSCRIBE_1" x="1866.6666666666667" y="1733.3333333333335">
+        <Attribute Name="WCET" Value="50"/>
+        <Attribute Name="Skills" Value="OPC UA"/>
+      </FB>
+      <FB Comment="" Name="F_MUL" Type="F_MUL" x="3466.666666666667" y="800.0">
+        <Attribute Name="WCET" Value="70"/>
+        <Parameter Name="IN2" Value="#30"/>
+      </FB>
+      <FB Comment="" Name="INT2INT_1" Type="INT2INT" x="4133.333333333334" y="800.0">
+        <Attribute Name="WCET" Value="10"/>
+      </FB>
+      <FB Comment="" Name="QX" Type="QX" x="4000.0" y="1733.3333333333335">
+        <Attribute Name="WCET" Value="80"/>
+        <Attribute Name="Skills" Value="Actuator"/>
+      </FB>
+      <FB Comment="" Name="BOOL2BOOL" Type="BOOL2BOOL" x="2933.3333333333335" y="1866.6666666666667">
+        <Attribute Name="WCET" Value="10"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="INT2INT_1.REQ" Source="F_MUL.CNF"/>
+        <Connection Comment="" Destination="PUBLISH_1.REQ" Source="INT2INT_1.CNF" dx1="240.0"/>
+        <Connection Comment="" Destination="F_MUL.REQ" Source="INT2INT.CNF"/>
+        <Connection Comment="" Destination="INT2INT.REQ" Source="SUBSCRIBE_1.IND" dx1="186.66666666666669"/>
+        <Connection Comment="" Destination="BOOL2BOOL.REQ" Source="SUBSCRIBE_2.IND" dx1="320.0"/>
+        <Connection Comment="" Destination="QX.REQ" Source="BOOL2BOOL.CNF" dx1="226.66666666666669"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="INT2INT.IN" Source="SUBSCRIBE_1.RD_1" dx1="186.66666666666669"/>
+        <Connection Comment="" Destination="F_MUL.IN1" Source="INT2INT.OUT"/>
+        <Connection Comment="" Destination="INT2INT_1.IN" Source="F_MUL.OUT"/>
+        <Connection Comment="" Destination="PUBLISH_1.SD_1" Source="INT2INT_1.OUT" dx1="240.0"/>
+        <Connection Comment="" Destination="QX.OUT" Source="BOOL2BOOL.OUT" dx1="226.66666666666669"/>
+        <Connection Comment="" Destination="BOOL2BOOL.IN" Source="SUBSCRIBE_2.RD_1" dx1="320.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Comment="" Name="OpcUaPlc" Type="FORTE_PC" x="2400.0" y="1600.0">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="116,138,197"/>
+    <Attribute Comment="" Name="Cost" Type="STRING" Value="1"/>
+    <Attribute Comment="" Name="Memory" Type="STRING" Value="5"/>
+    <Attribute Comment="" Name="Maximum number of FB" Type="STRING" Value="4"/>
+    <Attribute Comment="" Name="SIL" Type="STRING" Value="2"/>
+    <Attribute Comment="" Name="Open" Type="STRING" Value="true"/>
+    <Attribute Comment="" Name="Skills" Type="STRING" Value="OPC UA"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="CheapPlc" Type="FORTE_PC" x="4133.333333333334" y="1600.0">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="115,195,183"/>
+    <Attribute Comment="" Name="Cost" Type="STRING" Value="1"/>
+    <Attribute Comment="" Name="Memory" Type="STRING" Value="5"/>
+    <Attribute Comment="" Name="Maximum number of FB" Type="STRING" Value="4"/>
+    <Attribute Comment="" Name="SIL" Type="STRING" Value="3"/>
+    <Attribute Comment="" Name="Open" Type="STRING" Value="false"/>
+    <Attribute Comment="" Name="Skills" Type="STRING" Value=""/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ActuatorPlc" Type="FORTE_PC" x="4133.333333333334" y="2533.3333333333335">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="213,150,68"/>
+    <Attribute Comment="" Name="Cost" Type="STRING" Value="1"/>
+    <Attribute Comment="" Name="Memory" Type="STRING" Value="15"/>
+    <Attribute Comment="" Name="Maximum number of FB" Type="STRING" Value="4"/>
+    <Attribute Comment="" Name="SIL" Type="STRING" Value="4"/>
+    <Attribute Comment="" Name="Open" Type="STRING" Value="false"/>
+    <Attribute Comment="" Name="Skills" Type="STRING" Value="Actuator"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ExpensiveActuatorPlc" Type="FORTE_PC" x="5866.666666666667" y="1600.0">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="208,92,54"/>
+    <Attribute Comment="" Name="Cost" Type="STRING" Value="5"/>
+    <Attribute Comment="" Name="Memory" Type="STRING" Value="10"/>
+    <Attribute Comment="" Name="Maximum number of FB" Type="STRING" Value="4"/>
+    <Attribute Comment="" Name="SIL" Type="STRING" Value="3"/>
+    <Attribute Comment="" Name="Open" Type="STRING" Value="false"/>
+    <Attribute Comment="" Name="Skills" Type="STRING" Value="Actuator"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Segment Comment="" Name="Ethernet" Type="Ethernet" dx1="2000.0" x="3466.666666666667" y="1200.0">
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="192,36,33"/>
+    <Attribute Comment="comment" Name="Cost" Type="STRING" Value="value"/>
+    <Attribute Comment="comment" Name="Memory" Type="STRING" Value="value"/>
+    <Attribute Comment="comment" Name="Maximum number of FB" Type="STRING" Value="value"/>
+    <Attribute Comment="comment" Name="SIL" Type="STRING" Value="value"/>
+    <Attribute Comment="comment" Name="Open" Type="STRING" Value="value"/>
+    <Attribute Comment="comment" Name="Skills" Type="STRING" Value="value"/>
+  </Segment>
+  <Link CommResource="OpcUaPlc" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="CheapPlc" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="ExpensiveActuatorPlc" Comment="" SegmentName="Ethernet"/>
+</System>

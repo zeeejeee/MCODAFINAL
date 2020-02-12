@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="SimpleAbstractExample">
+  <Attribute Name="Constraints" Value="Memory,HW Skills,Functional coupling"/>
+  <Attribute Name="Objectives" Value="Memory usage"/>
+  <Attribute Name="Maximum cost" Value="200"/>
+  <Attribute Name="Maximum energy" Value="300"/>
+  <Attribute Name="Maximum number of devices" Value="4"/>
+  <Attribute Name="Communication delay" Value="10"/>
+  <Application Name="App">
+    <SubAppNetwork>
+      <FB Name="FB1" Type="FB1">
+        <Attribute Name="Memory" Value="5"/>
+        <Attribute Name="Skills" Value="PE001"/>
+      </FB>
+      <FB Name="FB2" Type="FB2">
+        <Attribute Name="Memory" Value="6"/>
+        <Attribute Name="Skills" Value="OpcuaInterface"/>
+      </FB>
+      <FB Name="FB3" Type="FB3">
+        <Attribute Name="Memory" Value="3"/>
+        <Attribute Name="Skills" Value=""/>
+      </FB>
+      <FB Name="FB4" Type="FB4">
+        <Attribute Name="Memory" Value="3"/>
+      </FB>
+      <FB Name="FB5" Type="FB5">
+        <Attribute Name="Memory" Value="2"/>
+      </FB>
+      <FB Name="FB6" Type="FB6">
+        <Attribute Name="Memory" Value="6"/>
+        <Attribute Name="Skills" Value="OpcuaInterface"/>
+      </FB>
+      <FB Name="FB7" Type="FB7">
+        <Attribute Name="Memory" Value="12"/>
+      </FB>
+      <FB Name="FB8" Type="FB8">
+        <Attribute Name="Memory" Value="5"/>
+      </FB>
+      <EventPaths>
+        <Path Events="FB1.E1,FB2.E1,FB3.E1,FB4.E1,FB5.E1" Deadline="195">
+          <Pair Source="FB1.E1" Destination="FB2.E1"/>
+          <Pair Source="FB1.E1" Destination="FB3.E1"/>
+          <Pair Source="FB2.E1" Destination="FB4.E1"/>
+          <Pair Source="FB3.E1" Destination="FB4.E1"/>
+          <Pair Source="FB4.E1" Destination="FB5.E1"/>
+        </Path>
+        <Path Events="FB6.E1,FB7.E1" Deadline="200">
+          <Pair Source="FB6.E1" Destination="FB7.E1"/>
+        </Path>
+      </EventPaths>
+      <EventConnections>
+        <Connection Source="FB1.E1" Destination="FB2.E1"/>
+        <Connection Source="FB2.E2" Destination="FB4.E1"/>
+        <Connection Source="FB1.E1" Destination="FB3.E1"/>
+        <Connection Source="FB3.E1" Destination="FB4.E2"/>
+        <Connection Source="FB4.E3" Destination="FB5.E1"/>
+        <Connection Source="FB6.E1" Destination="FB7.E1"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Source="FB1.D1" Destination="FB2.D1"/>
+        <Connection Source="FB1.D2" Destination="FB3.D1"/>
+        <Connection Source="FB2.D2" Destination="FB4.D1"/>
+        <Connection Source="FB2.D3" Destination="FB4.D2"/>
+        <Connection Source="FB3.D2" Destination="FB4.D3"/>
+        <Connection Source="FB3.D3" Destination="FB4.D4"/>
+        <Connection Source="FB4.D5" Destination="FB5.D1"/>
+        <Connection Source="FB4.D6" Destination="FB5.D2"/>
+        <Connection Source="FB6.D1" Destination="FB7.D1"/>
+        <Connection Source="FB6.D2" Destination="FB7.D2"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="Device1">
+    <Attribute Name="Cost" Value="50"/>
+    <Attribute Name="Energy" Value="40"/>
+    <Attribute Name="Memory" Value="18"/>
+    <Attribute Name="Maximum number of FB" Value="4"/>
+    <Attribute Name="SIL" Value="4"/>
+    <Attribute Name="Open" Value="true"/>
+    <Attribute Name="Skills" Value="PE001,OpcuaInterface"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+    </Resource>
+  </Device>
+  <Device Name="Device2">
+    <Attribute Name="Cost" Value="70"/>
+    <Attribute Name="Energy" Value="40"/>
+    <Attribute Name="Memory" Value="9"/>
+    <Attribute Name="Maximum number of FB" Value="4"/>
+    <Attribute Name="SIL" Value="3"/>
+    <Attribute Name="Open" Value="true"/>
+    <Attribute Name="Skills" Value="PE002,OpcuaInterface"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+    </Resource>
+  </Device>
+  <Device Name="Device3">
+    <Attribute Name="Cost" Value="80"/>
+    <Attribute Name="Energy" Value="12"/>
+    <Attribute Name="Memory" Value="120"/>
+    <Attribute Name="Maximum number of FB" Value="4"/>
+    <Attribute Name="SIL" Value="2"/>
+    <Attribute Name="Open" Value="true"/>
+    <Attribute Name="Skills" Value="PE003,OpcuaInterface"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+    </Resource>
+  </Device>
+  <Device Name="Device4">
+    <Attribute Name="Cost" Value="50"/>
+    <Attribute Name="Energy" Value="40"/>
+    <Attribute Name="Memory" Value="8"/>
+    <Attribute Name="Maximum number of FB" Value="4"/>
+    <Attribute Name="SIL" Value="4"/>
+    <Attribute Name="Open" Value="false"/>
+    <Attribute Name="Skills" Value="PE004,SecuritySkill"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+    </Resource>
+  </Device>
+  <Segment Name="Ethernet1" Type="Ethernet">
+  </Segment>
+  <Segment Name="Ethernet2" Type="Ethernet">
+  </Segment>
+  <Segment Name="DeviceNet" Type="DeviceNet">
+  </Segment>
+  <Link CommResource="Device1" SegmentName="Ethernet1"/>
+  <Link CommResource="Device2" SegmentName="Ethernet1"/>
+  <Link CommResource="Device2" SegmentName="Ethernet2"/>
+  <Link CommResource="Device3" SegmentName="Ethernet2"/>
+  <Link CommResource="Device4" SegmentName="DeviceNet"/>
+</System>

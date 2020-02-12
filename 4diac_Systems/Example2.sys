@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Comment="" Name="Example2">
+  <Identification/>
+  <VersionInfo Author="jonas" Date="2019-11-26" Version="1.0"/>
+  <Attribute Name="Constraints" Value="Cost,Energy,Number of devices,HW Stress,Memory,HW Skills,SIL,Redundancy,Security,Functional coupling"/>
+  <Attribute Name="Objectives" Value="Cost,Energy,Number of devices,Memory usage,Functional coupling,SIL"/>
+  <Application Comment="" Name="FS01">
+    <SubAppNetwork>
+      <FB Comment="" Name="Reset" Type="SERVER_0" x="1633.3333333333335" y="433.33333333333337">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/FS01/Services/Reset,1:s=FS01_Reset]"/>
+      </FB>
+      <FB Comment="" Name="Start" Type="SERVER_0" x="1133.3333333333335" y="1233.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/FS01/Services/Start,1:s=FS01_Start]"/>
+      </FB>
+      <FB Comment="" Name="Stop" Type="SERVER_0" x="1933.3333333333335" y="1433.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/FS01/Services/Stop,1:s=FS01_Stop]"/>
+      </FB>
+      <FB Comment="" Name="Status" Type="IPSMS_GEN" x="3333.3333333333335" y="433.33333333333337">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="opmode_array" Value="['ASSEMBLY','SET2DEFAULT','GODOWN','GOUP','UNLOCK']"/>
+      </FB>
+      <FB Comment="" Name="ipsms2triggerGEN" Type="ipsms2triggerGEN" x="5533.333333333334" y="1033.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="opmode_array" Value="['ASSEMBLY','SET2DEFAULT','GODOWN','GOUP','UNLOCK']"/>
+      </FB>
+      <FB Comment="" Name="PUBLISH_3" Type="PUBLISH_3" x="5533.333333333334" y="2533.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[WRITE;/Objects/FS01/Status/OPMODE,1:s=FS01_OPMODE;/Objects/FS01/Status/WORKST;/Objects/FS01/Status/EXST]"/>
+      </FB>
+      <FB Comment="" Name="CylinderDA_IPSMS" Type="CylinderDA_IPSMS" x="8333.333333333334" y="533.3333333333334">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+      </FB>
+      <FB Comment="" Name="E_TimeOut_0" Type="E_TimeOut" x="9533.333333333334" y="1833.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+      </FB>
+      <FB Comment="" Name="E_TimeOut_0_1" Type="E_TimeOut" x="9533.333333333334" y="833.3333333333334">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+      </FB>
+      <FB Comment="" Name="Assembly" Type="SERVER_0" x="1133.3333333333335" y="2233.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/FS01/Services/Assembly,1:s=FS01_Assembly]"/>
+      </FB>
+      <FB Comment="" Name="Set2Default" Type="SERVER_0" x="1933.3333333333335" y="2433.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/FS01/Services/Set2Default]"/>
+      </FB>
+      <FB Comment="" Name="GoDown" Type="SERVER_0" x="1133.3333333333335" y="3133.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/FS01/Services/GoDown]"/>
+      </FB>
+      <FB Comment="" Name="Unlock" Type="SERVER_0" x="1133.3333333333335" y="4033.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/FS01/Services/Unlock]"/>
+      </FB>
+      <FB Comment="" Name="GoUp" Type="SERVER_0" x="1933.3333333333335" y="3333.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/FS01/Services/GoUp]"/>
+      </FB>
+      <FB Comment="" Name="CoverUnitUnlockerIPSMS" Type="CoverUnitUnlockerIPSMS" x="8133.333333333334" y="1533.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+      </FB>
+      <FB Comment="" Name="CoverUnit_IPSMS" Type="CoverUnit_IPSMS" x="6633.333333333334" y="1233.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+      </FB>
+      <FB Comment="" Name="SubApp_GenPart_1" Type="SubApp_GenPart" x="7033.333333333334" y="3333.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="IO_Adresse" Value="GE03FS01_Generator.Create"/>
+        <Parameter Name="InitGenerate" Value="False"/>
+      </FB>
+      <FB Comment="" Name="PUBLISH_0" Type="PUBLISH_0" x="400.0" y="133.33333333333334">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_OBJECT;,0:i=61;/Objects/FS01/Services,1:s=FS01_Services]"/>
+      </FB>
+      <FB Comment="" Name="SensorDetect" Type="IX" x="5466.666666666667" y="-2800.0">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%FS01_SensorDetect%"/>
+      </FB>
+      <FB Comment="" Name="SensorDown" Type="IX" x="5466.666666666667" y="-1900.0">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%FS01_SensorDown%"/>
+      </FB>
+      <FB Comment="" Name="SensorUp" Type="IX" x="5466.666666666667" y="-1000.0">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%FS01_SensorUp%"/>
+      </FB>
+      <FB Comment="" Name="SensorUnlock" Type="IX" x="5466.666666666667" y="-100.0">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%FS01_SensorUnlock%"/>
+      </FB>
+      <FB Comment="" Name="ActuatorDown" Type="QX" x="11866.666666666668" y="-400.0">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%FS01_ActuatorDown%"/>
+      </FB>
+      <FB Comment="" Name="ActuatorUnlock" Type="QX" x="11866.666666666668" y="400.0">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%FS01_ActuatorUnlock%"/>
+      </FB>
+      <FB Comment="" Name="ActuatorUp" Type="QX" x="11866.666666666668" y="1200.0">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="false"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%FS01_ActuatorUp%"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="PUBLISH_3.INIT" Source="ipsms2triggerGEN.INITO" dx1="60.0" dx2="60.0" dy="900.0"/>
+        <Connection Comment="" Destination="CoverUnit_IPSMS.Stop" Source="ipsms2triggerGEN.Stop" dx1="120.0"/>
+        <Connection Comment="" Destination="CoverUnit_IPSMS.DoAssembly" Source="ipsms2triggerGEN.Event1" dx1="120.0"/>
+        <Connection Comment="" Destination="ipsms2triggerGEN.Stop_proc" Source="Status.STOPO" dx1="400.0"/>
+        <Connection Comment="" Destination="GoUp.RSP" Source="GoUp.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="Status.STOP" Source="Stop.IND" dx1="480.0"/>
+        <Connection Comment="" Destination="Status.OPMODE2" Source="Set2Default.IND" dx1="480.0"/>
+        <Connection Comment="" Destination="Status.Done" Source="CoverUnit_IPSMS.Done" dx1="160.0" dx2="60.0" dy="-340.0"/>
+        <Connection Comment="" Destination="PUBLISH_3.REQ" Source="Status.OPMODE_UPDT" dx1="600.0"/>
+        <Connection Comment="" Destination="Status.OPMODE5" Source="Unlock.IND" dx1="880.0"/>
+        <Connection Comment="" Destination="Stop.RSP" Source="Stop.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="PUBLISH_3.REQ" Source="Status.EXST_UPDT" dx1="600.0"/>
+        <Connection Comment="" Destination="GoDown.RSP" Source="GoDown.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="Status.START" Source="Start.IND" dx1="880.0"/>
+        <Connection Comment="" Destination="CoverUnit_IPSMS.GoUp" Source="ipsms2triggerGEN.Event4" dx1="120.0"/>
+        <Connection Comment="" Destination="CoverUnit_IPSMS.INIT" Source="PUBLISH_3.INITO" dx1="280.0"/>
+        <Connection Comment="" Destination="Unlock.INIT" Source="GoUp.INITO" dx1="60.0" dx2="60.0" dy="340.0"/>
+        <Connection Comment="" Destination="Start.RSP" Source="Start.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="Set2Default.RSP" Source="Set2Default.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="CoverUnit_IPSMS.Unlock" Source="ipsms2triggerGEN.Event5" dx1="120.0"/>
+        <Connection Comment="" Destination="CoverUnit_IPSMS.SetToDefault" Source="CoverUnit_IPSMS.INITO" dx1="60.0" dx2="60.0" dy="1360.0"/>
+        <Connection Comment="" Destination="Assembly.INIT" Source="Stop.INITO" dx1="60.0" dx2="60.0" dy="400.0"/>
+        <Connection Comment="" Destination="ipsms2triggerGEN.Start_proc" Source="Status.STARTO" dx1="400.0"/>
+        <Connection Comment="" Destination="Status.OPMODE3" Source="GoDown.IND" dx1="880.0"/>
+        <Connection Comment="" Destination="Status.OPMODE4" Source="GoUp.IND" dx1="480.0"/>
+        <Connection Comment="" Destination="Reset.RSP" Source="Reset.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="GoDown.INIT" Source="Set2Default.INITO" dx1="60.0" dx2="60.0" dy="340.0"/>
+        <Connection Comment="" Destination="Unlock.RSP" Source="Unlock.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="Stop.INIT" Source="Start.INITO" dx1="160.0"/>
+        <Connection Comment="" Destination="Status.OPMODE1" Source="Assembly.IND" dx1="880.0"/>
+        <Connection Comment="" Destination="Set2Default.INIT" Source="Assembly.INITO" dx1="160.0"/>
+        <Connection Comment="" Destination="GoUp.INIT" Source="GoDown.INITO" dx1="160.0"/>
+        <Connection Comment="" Destination="Status.Ready" Source="Status.Prepare" dx1="60.0" dx2="60.0" dy="-340.0"/>
+        <Connection Comment="" Destination="SubApp_GenPart_1.Opmode_Updt" Source="Status.OPMODE_UPDT" dx1="400.0"/>
+        <Connection Comment="" Destination="PUBLISH_3.REQ" Source="Status.WORKST_UPDT" dx1="600.0"/>
+        <Connection Comment="" Destination="Assembly.RSP" Source="Assembly.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="Status.RESET" Source="Reset.IND" dx1="620.0"/>
+        <Connection Comment="" Destination="SubApp_GenPart_1.InitIO" Source="CoverUnit_IPSMS.INITO" dx1="60.0" dx2="60.0" dy="1240.0"/>
+        <Connection Comment="" Destination="Reset.INIT" Source="PUBLISH_0.CNF" dx1="326.6666666666667"/>
+        <Connection Comment="" Destination="Start.INIT" Source="Reset.INITO" dx1="60.0" dx2="60.0" dy="400.0"/>
+        <Connection Comment="" Destination="PUBLISH_0.REQ" Source="PUBLISH_0.INITO" dx1="80.0" dx2="80.0" dy="46.66666666666667"/>
+        <Connection Comment="" Destination="CoverUnit_IPSMS.GoDown" Source="ipsms2triggerGEN.Event3" dx1="120.0"/>
+        <Connection Comment="" Destination="CoverUnit_IPSMS.SetToDefault" Source="ipsms2triggerGEN.Event2" dx1="120.0"/>
+        <Connection Comment="" Destination="ipsms2triggerGEN.INIT" Source="Status.INITO" dx1="400.0"/>
+        <Connection Comment="" Destination="SubApp_GenPart_1.Done" Source="CoverUnit_IPSMS.Done" dx1="60.0" dx2="60.0" dy="1240.0"/>
+        <Connection Comment="" Destination="SensorDown.INIT" Source="SensorDetect.INITO" dx1="60.0" dx2="60.0" dy="440.0"/>
+        <Connection Comment="" Destination="SensorUp.INIT" Source="SensorDown.INITO" dx1="60.0" dx2="60.0" dy="440.0"/>
+        <Connection Comment="" Destination="SensorUnlock.INIT" Source="SensorUp.INITO" dx1="60.0" dx2="60.0" dy="440.0"/>
+        <Connection Comment="" Destination="CoverUnitUnlockerIPSMS.INDsensor" Source="SensorDetect.IND" dx1="453.33333333333337"/>
+        <Connection Comment="" Destination="CylinderDA_IPSMS.INDsensor" Source="SensorDown.IND" dx1="1220.0"/>
+        <Connection Comment="" Destination="CylinderDA_IPSMS.INDsensor" Source="SensorUp.IND" dx1="553.3333333333334"/>
+        <Connection Comment="" Destination="CoverUnitUnlockerIPSMS.INDsensor" Source="SensorUnlock.IND" dx1="453.33333333333337"/>
+        <Connection Comment="" Destination="SensorDetect.INIT" Source="Unlock.INITO" dx1="2426.666666666667"/>
+        <Connection Comment="" Destination="ActuatorUnlock.INIT" Source="ActuatorDown.INITO" dx1="60.0" dx2="60.0" dy="400.0"/>
+        <Connection Comment="" Destination="ActuatorUp.INIT" Source="ActuatorUnlock.INITO" dx1="60.0" dx2="60.0" dy="400.0"/>
+        <Connection Comment="" Destination="ActuatorDown.INIT" Source="SensorUnlock.INITO" dx1="4040.0"/>
+        <Connection Comment="" Destination="ActuatorDown.REQ" Source="CylinderDA_IPSMS.CylinderCMD" dx1="2393.3333333333335"/>
+        <Connection Comment="" Destination="ActuatorUnlock.REQ" Source="CoverUnitUnlockerIPSMS.CMD" dx1="2460.0"/>
+        <Connection Comment="" Destination="ActuatorUp.REQ" Source="CylinderDA_IPSMS.CylinderCMD" dx1="2393.3333333333335"/>
+        <Connection Comment="" Destination="Status.Init" Source="ActuatorUp.INITO" dx1="80.0" dx2="80.0" dy="-300.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="PUBLISH_3.SD_3" Source="Status.EXST" dx1="600.0"/>
+        <Connection Comment="" Destination="SubApp_GenPart_1.Opmode_Current" Source="Status.OPMODE" dx1="140.0"/>
+        <Connection Comment="" Destination="ipsms2triggerGEN.opmode" Source="Status.OPMODE" dx1="640.0"/>
+        <Connection Comment="" Destination="PUBLISH_3.SD_2" Source="Status.WORKST" dx1="600.0"/>
+        <Connection Comment="" Destination="PUBLISH_3.SD_1" Source="Status.OPMODE" dx1="600.0"/>
+        <Connection Comment="" Destination="CoverUnitUnlockerIPSMS.Sensor_Detect" Source="SensorDetect.IN" dx1="453.33333333333337"/>
+        <Connection Comment="" Destination="CylinderDA_IPSMS.Sensor_Ext" Source="SensorDown.IN" dx1="553.3333333333334"/>
+        <Connection Comment="" Destination="CylinderDA_IPSMS.Sensor_Ret" Source="SensorUp.IN" dx1="553.3333333333334"/>
+        <Connection Comment="" Destination="CoverUnitUnlockerIPSMS.Sensor_Unlock" Source="SensorUnlock.IN" dx1="453.33333333333337"/>
+        <Connection Comment="" Destination="ActuatorDown.OUT" Source="CylinderDA_IPSMS.Extend" dx1="2393.3333333333335"/>
+        <Connection Comment="" Destination="ActuatorUnlock.OUT" Source="CoverUnitUnlockerIPSMS.Unlock" dx1="2460.0"/>
+        <Connection Comment="" Destination="ActuatorUp.OUT" Source="CylinderDA_IPSMS.Retract" dx1="2393.3333333333335"/>
+      </DataConnections>
+      <AdapterConnections>
+        <Connection Comment="" Destination="CylinderDA_IPSMS.Cylinder" Source="CoverUnit_IPSMS.VerticalAxis" dx1="280.0"/>
+        <Connection Comment="" Destination="E_TimeOut_0_1.TimeOutSocket" Source="CylinderDA_IPSMS.Timer" dx1="80.0" dx2="80.0" dy="160.0"/>
+        <Connection Comment="" Destination="CoverUnitUnlockerIPSMS.Unlocker" Source="CoverUnit_IPSMS.Unlocker" dx1="380.0"/>
+        <Connection Comment="" Destination="E_TimeOut_0.TimeOutSocket" Source="CoverUnitUnlockerIPSMS.Timer" dx1="140.0"/>
+      </AdapterConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Comment="" Name="GF01">
+    <SubAppNetwork>
+      <FB Comment="" Name="LS01" Type="IX" x="6233.333333333334" y="433.33333333333337">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%GF01_LS01%"/>
+      </FB>
+      <FB Comment="" Name="ActuatorForward" Type="QX" x="11033.333333333334" y="2533.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%GF01_ActuatorForward%"/>
+      </FB>
+      <FB Comment="" Name="E_TimeOut" Type="E_TimeOut" x="9453.333333333334" y="4253.333333333334">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+      </FB>
+      <FB Comment="" Name="ActuatorBackward" Type="QX" x="11033.333333333334" y="3433.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%GF01_ActuatorBackward%"/>
+      </FB>
+      <FB Comment="" Name="LS02" Type="IX" x="6233.333333333334" y="1433.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%GF01_LS02%"/>
+      </FB>
+      <FB Comment="" Name="Reset" Type="SERVER_0" x="1233.3333333333335" y="633.3333333333334">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/GF01/Services/Reset]"/>
+      </FB>
+      <FB Comment="" Name="Start" Type="SERVER_0" x="1233.3333333333335" y="1373.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/GF01/Services/Start]"/>
+      </FB>
+      <FB Comment="" Name="Stop" Type="SERVER_0" x="1233.3333333333335" y="2133.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/GF01/Services/Stop]"/>
+      </FB>
+      <FB Comment="" Name="Status" Type="IPSMS_GEN" x="3233.3333333333335" y="2533.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="opmode_array" Value="['BSTATE','FPASS', 'BPASS','FTAKE', 'BTAKE','FJOG', 'BJOG']"/>
+      </FB>
+      <FB Comment="" Name="modi" Type="ipsms2triggerGEN" x="6033.333333333334" y="2633.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="opmode_array" Value="['BSTATE','FPASS', 'BPASS','FTAKE', 'BTAKE','FJOG', 'BJOG']"/>
+      </FB>
+      <FB Comment="" Name="PUBLISH_6" Type="PUBLISH_3" x="6233.333333333334" y="4333.333333333334">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[WRITE;/Objects/GF01/Status/OPMODE;/Objects/GF01/Status/WORKST;/Objects/GF01/Status/EXST]"/>
+      </FB>
+      <FB Comment="" Name="PassForward" Type="SERVER_0" x="1233.3333333333335" y="2933.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/GF01/Services/PassForward]"/>
+      </FB>
+      <FB Comment="" Name="TakeForward" Type="SERVER_0" x="1233.3333333333335" y="4533.333333333334">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/GF01/Services/TakeForward]"/>
+      </FB>
+      <FB Comment="" Name="JogForward" Type="SERVER_0" x="1233.3333333333335" y="6133.333333333334">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/GF01/Services/JogForward]"/>
+      </FB>
+      <FB Comment="" Name="ConveyorBeltControl" Type="ConveyorBelt_IPSMS" x="8033.333333333334" y="2833.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+      </FB>
+      <FB Comment="" Name="PassBackward" Type="SERVER_0" x="1233.3333333333335" y="3733.3333333333335">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/GF01/Services/PassBackward]"/>
+      </FB>
+      <FB Comment="" Name="TakeBackward" Type="SERVER_0" x="1233.3333333333335" y="5333.333333333334">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/GF01/Services/TakeBackward]"/>
+      </FB>
+      <FB Comment="" Name="JogBackward" Type="SERVER_0" x="1233.3333333333335" y="6933.333333333334">
+        <Attribute Name="Memory" Value="1"/>
+        <Attribute Name="SIL" Value="3"/>
+        <Attribute Name="Sensitivity" Value="true"/>
+        <Attribute Name="Skills" Value="value"/>
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="opc_ua[CREATE_METHOD;/Objects/GF01/Services/JogBackward]"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="Status.RESET" Source="Reset.IND" dx1="1000.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.TakeForward" Source="modi.Event4" dx1="580.0"/>
+        <Connection Comment="" Destination="TakeBackward.RSP" Source="TakeBackward.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="PUBLISH_6.REQ" Source="Status.WORKST_UPDT" dx1="320.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.PassBackward" Source="modi.Event3" dx1="580.0"/>
+        <Connection Comment="" Destination="PUBLISH_6.INIT" Source="modi.INITO" dx1="60.0" dx2="60.0" dy="1440.0"/>
+        <Connection Comment="" Destination="modi.INIT" Source="Status.INITO" dx1="940.0"/>
+        <Connection Comment="" Destination="ActuatorBackward.INIT" Source="ActuatorForward.INITO" dx1="60.0" dx2="60.0" dy="660.0"/>
+        <Connection Comment="" Destination="modi.Stop_proc" Source="Status.STOPO"/>
+        <Connection Comment="" Destination="PassForward.INIT" Source="Stop.INITO" dx1="60.0" dx2="60.0" dy="580.0"/>
+        <Connection Comment="" Destination="Status.Ready" Source="Status.Prepare" dx1="60.0" dx2="60.0" dy="-320.0"/>
+        <Connection Comment="" Destination="Status.OPMODE2" Source="PassForward.IND" dx1="1000.0"/>
+        <Connection Comment="" Destination="Status.OPMODE7" Source="JogBackward.IND" dx1="1000.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.TakeBackward" Source="modi.Event5" dx1="580.0"/>
+        <Connection Comment="" Destination="PassForward.RSP" Source="PassForward.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="Status.START" Source="Start.IND" dx1="1000.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.JogBackward" Source="modi.Event7" dx1="580.0"/>
+        <Connection Comment="" Destination="Start.INIT" Source="Reset.INITO" dx1="60.0" dx2="60.0" dy="560.0"/>
+        <Connection Comment="" Destination="TakeForward.RSP" Source="TakeForward.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="TakeForward.INIT" Source="PassBackward.INITO" dx1="60.0" dx2="60.0" dy="560.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.INDsensor" Source="LS01.IND" dx1="960.0"/>
+        <Connection Comment="" Destination="Status.OPMODE5" Source="TakeBackward.IND" dx1="980.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.Stop" Source="modi.Stop" dx1="580.0"/>
+        <Connection Comment="" Destination="ActuatorForward.INIT" Source="LS02.INITO" dx1="3900.0"/>
+        <Connection Comment="" Destination="JogForward.INIT" Source="TakeBackward.INITO" dx1="60.0" dx2="60.0" dy="600.0"/>
+        <Connection Comment="" Destination="LS02.INIT" Source="LS01.INITO" dx1="60.0" dx2="60.0" dy="800.0"/>
+        <Connection Comment="" Destination="PUBLISH_6.REQ" Source="Status.OPMODE_UPDT" dx1="360.0"/>
+        <Connection Comment="" Destination="Status.OPMODE4" Source="TakeForward.IND" dx1="1000.0"/>
+        <Connection Comment="" Destination="JogBackward.RSP" Source="JogBackward.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="JogBackward.INIT" Source="JogForward.INITO" dx1="60.0" dx2="60.0" dy="560.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.INDsensor" Source="LS02.IND" dx1="960.0"/>
+        <Connection Comment="" Destination="PUBLISH_6.REQ" Source="Status.EXST_UPDT" dx1="280.0"/>
+        <Connection Comment="" Destination="Status.Init" Source="ActuatorBackward.INITO" dx1="60.0" dx2="200.0" dy="-1240.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.INIT" Source="PUBLISH_6.INITO" dx1="720.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.JogForward" Source="modi.Event6" dx1="580.0"/>
+        <Connection Comment="" Destination="JogForward.RSP" Source="JogForward.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="Stop.INIT" Source="Start.INITO" dx1="60.0" dx2="60.0" dy="600.0"/>
+        <Connection Comment="" Destination="Status.OPMODE6" Source="JogForward.IND" dx1="1000.0"/>
+        <Connection Comment="" Destination="Stop.RSP" Source="Stop.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="Status.STOP" Source="Stop.IND" dx1="1000.0"/>
+        <Connection Comment="" Destination="Start.RSP" Source="Start.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="TakeBackward.INIT" Source="TakeForward.INITO" dx1="60.0" dx2="60.0" dy="580.0"/>
+        <Connection Comment="" Destination="ActuatorBackward.REQ" Source="ConveyorBeltControl.CMD" dx1="220.0"/>
+        <Connection Comment="" Destination="Status.OPMODE3" Source="PassBackward.IND" dx1="980.0"/>
+        <Connection Comment="" Destination="PassBackward.RSP" Source="PassBackward.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="Reset.RSP" Source="Reset.IND" dx1="60.0" dx2="60.0" dy="120.0"/>
+        <Connection Comment="" Destination="Status.Done" Source="ConveyorBeltControl.Completed" dx1="60.0" dx2="140.0" dy="-780.0"/>
+        <Connection Comment="" Destination="modi.Start_proc" Source="Status.STARTO"/>
+        <Connection Comment="" Destination="LS01.INIT" Source="JogBackward.INITO" dx1="140.0"/>
+        <Connection Comment="" Destination="ActuatorForward.REQ" Source="ConveyorBeltControl.CMD" dx1="220.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.PassForward" Source="modi.Event2" dx1="580.0"/>
+        <Connection Comment="" Destination="PassBackward.INIT" Source="PassForward.INITO" dx1="60.0" dx2="60.0" dy="580.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="PUBLISH_6.SD_2" Source="Status.WORKST" dx1="160.0"/>
+        <Connection Comment="" Destination="PUBLISH_6.SD_1" Source="Status.OPMODE" dx1="220.0"/>
+        <Connection Comment="" Destination="ActuatorForward.OUT" Source="ConveyorBeltControl.Forward" dx1="980.0"/>
+        <Connection Comment="" Destination="PUBLISH_6.SD_3" Source="Status.EXST" dx1="100.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.LS02" Source="LS02.IN" dx1="840.0"/>
+        <Connection Comment="" Destination="ActuatorBackward.OUT" Source="ConveyorBeltControl.Backward"/>
+        <Connection Comment="" Destination="modi.opmode" Source="Status.OPMODE" dx1="460.0"/>
+        <Connection Comment="" Destination="ConveyorBeltControl.LS01" Source="LS01.IN" dx1="900.0"/>
+      </DataConnections>
+      <AdapterConnections>
+        <Connection Comment="" Destination="E_TimeOut.TimeOutSocket" Source="ConveyorBeltControl.Timer" dx1="220.0"/>
+      </AdapterConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Comment="" Name="FORTE_PC" Type="FORTE_PC" x="640.0" y="1773.3333333333335">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="91,214,39"/>
+    <Attribute Comment="comment" Name="Cost" Type="STRING" Value="5"/>
+    <Attribute Comment="comment" Name="Memory" Type="STRING" Value="100"/>
+    <Attribute Comment="comment" Name="Maximum number of FB" Type="STRING" Value="20"/>
+    <Attribute Comment="comment" Name="SIL" Type="STRING" Value="3"/>
+    <Attribute Comment="comment" Name="Open" Type="STRING" Value="true"/>
+    <Attribute Comment="comment" Name="Skills" Type="STRING" Value="value"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="FORTE_PC_1" Type="FORTE_PC" x="2400.0" y="1733.3333333333335">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="194,52,135"/>
+    <Attribute Comment="comment" Name="Cost" Type="STRING" Value="5"/>
+    <Attribute Comment="comment" Name="Memory" Type="STRING" Value="90"/>
+    <Attribute Comment="comment" Name="Maximum number of FB" Type="STRING" Value="20"/>
+    <Attribute Comment="comment" Name="SIL" Type="STRING" Value="4"/>
+    <Attribute Comment="comment" Name="Open" Type="STRING" Value="true"/>
+    <Attribute Comment="comment" Name="Skills" Type="STRING" Value="value"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="FORTE_PC_2" Type="FORTE_PC" x="4800.0" y="1866.6666666666667">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="81,190,204"/>
+    <Attribute Comment="comment" Name="Cost" Type="STRING" Value="20"/>
+    <Attribute Comment="comment" Name="Memory" Type="STRING" Value="90"/>
+    <Attribute Comment="comment" Name="Maximum number of FB" Type="STRING" Value="15"/>
+    <Attribute Comment="comment" Name="SIL" Type="STRING" Value="4"/>
+    <Attribute Comment="comment" Name="Open" Type="STRING" Value="false"/>
+    <Attribute Comment="comment" Name="Skills" Type="STRING" Value="value"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="FORTE_PC_3" Type="FORTE_PC" x="6933.333333333334" y="1866.6666666666667">
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="219,203,126"/>
+    <Attribute Comment="comment" Name="Cost" Type="STRING" Value="20"/>
+    <Attribute Comment="comment" Name="Memory" Type="STRING" Value="80"/>
+    <Attribute Comment="comment" Name="Maximum number of FB" Type="STRING" Value="15"/>
+    <Attribute Comment="comment" Name="SIL" Type="STRING" Value="3"/>
+    <Attribute Comment="comment" Name="Open" Type="STRING" Value="false"/>
+    <Attribute Comment="comment" Name="Skills" Type="STRING" Value="value"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork/>
+    </Resource>
+  </Device>
+  <Segment Comment="" Name="Ethernet" Type="Ethernet" dx1="2000.0" x="533.3333333333334" y="666.6666666666667">
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="218,117,77"/>
+  </Segment>
+  <Segment Comment="" Name="Ethernet_1" Type="Ethernet" dx1="2000.0" x="5200.0" y="666.6666666666667">
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="113,113,219"/>
+  </Segment>
+  <Link CommResource="FORTE_PC_2" Comment="" SegmentName="Ethernet_1"/>
+  <Link CommResource="FORTE_PC_3" Comment="" SegmentName="Ethernet_1"/>
+  <Link CommResource="FORTE_PC_1" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="FORTE_PC" Comment="" SegmentName="Ethernet"/>
+</System>
